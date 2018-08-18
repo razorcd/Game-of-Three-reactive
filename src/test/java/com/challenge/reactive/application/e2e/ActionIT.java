@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -30,9 +31,12 @@ public class ActionIT {
     @Autowired
     ActionsRepository actionsRepository;
 
+    @Autowired
+    MongoTemplate mongoTemplate;
+
     @Before
     public void setUp() throws Exception {
-        actionsRepository.deleteAll().block();
+        mongoTemplate.dropCollection(Action.class);
     }
 
     @Test

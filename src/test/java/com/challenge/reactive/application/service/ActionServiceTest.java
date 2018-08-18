@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -23,14 +24,17 @@ import static org.junit.Assert.*;
 @DataMongoTest
 public class ActionServiceTest {
 
+    private ActionService actionService;
+
     @Autowired
     private ActionsRepository actionsRepository;
 
-    private ActionService actionService;
+    @Autowired
+    MongoTemplate mongoTemplate;
 
     @Before
     public void setUp() throws Exception {
-        actionsRepository.deleteAll().block();
+        mongoTemplate.dropCollection(Action.class);
         actionService = new ActionService(actionsRepository);
     }
 

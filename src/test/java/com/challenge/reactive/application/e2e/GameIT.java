@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -31,9 +32,12 @@ public class GameIT {
     @Autowired
     GameRepository gameRepository;
 
+    @Autowired
+    MongoTemplate mongoTemplate;
+
     @Before
     public void setUp() throws Exception {
-        gameRepository.deleteAll().block();
+        mongoTemplate.dropCollection(Game.class);
     }
 
     @Test
