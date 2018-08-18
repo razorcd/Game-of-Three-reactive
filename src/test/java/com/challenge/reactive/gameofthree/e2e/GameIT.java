@@ -3,8 +3,6 @@ package com.challenge.reactive.gameofthree.e2e;
 import com.challenge.reactive.gameofthree.model.Game;
 import com.challenge.reactive.gameofthree.model.Player;
 import com.challenge.reactive.gameofthree.repository.GameRepository;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -80,7 +78,22 @@ public class GameIT {
 
         Game updatedGameInDb = gameRepository.findById(gameInDb.getId()).block();
         assertEquals("Should add new player to game.", player, updatedGameInDb.getPlayers().get(0));
+    }
 
+    @Test
+    public void should_add_players_max_2_players_to_game_by_id() {
+        Player player = new Player("IT-id-1");
+        Game gameInDb = new Game(null, Arrays.asList(new Player("p1"), new Player("p2")));
+        gameInDb = gameRepository.save(gameInDb).block();
+
+        webTestClient.post()
+                .uri("/games/{id}/players", gameInDb.getId())
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(Mono.just(player), Player.class)
+                .exchange()
+                    .expectStatus().isBadRequest()
+                    .expectBody()
+                    .jsonPath("$.message").isEqualTo("players: size must be maximum 2");
     }
 }
 

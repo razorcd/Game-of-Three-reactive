@@ -1,5 +1,6 @@
 package com.challenge.reactive.gameofthree.service;
 
+import com.challenge.reactive.gameofthree.config.MongoValidationConfig;
 import com.challenge.reactive.gameofthree.model.Game;
 import com.challenge.reactive.gameofthree.model.Player;
 import com.challenge.reactive.gameofthree.repository.GameRepository;
@@ -20,7 +21,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
-@DataMongoTest
+@DataMongoTest(excludeAutoConfiguration = MongoValidationConfig.class)
 //@Transactional
 public class GameServiceTest {
 
@@ -63,4 +64,15 @@ public class GameServiceTest {
         assertEquals("Should add player to game.", player, updatedGameInDb.getPlayers().get(0));
     }
 
+    @Test
+    public void method_addPlayer_should_add_max_2_players_to_a_game() {
+        Game gameInDb = new Game(null, Arrays.asList(new Player("id-1"), new Player("id-2")));
+        gameInDb = gameRepository.save(gameInDb).block();
+        Player player = new Player("id-3");
+
+        gameService.addPlayer(player, gameInDb.getId()).block();
+
+        Game updatedGameInDb = gameRepository.findById(gameInDb.getId()).block();
+        assertEquals("Should add player to game.", player, updatedGameInDb.getPlayers().get(2));
+    }
 }
