@@ -1,6 +1,7 @@
 package com.challenge.reactive.gameofthree.service;
 
 import com.challenge.reactive.gameofthree.model.Game;
+import com.challenge.reactive.gameofthree.model.Player;
 import com.challenge.reactive.gameofthree.repository.GameRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,6 +50,17 @@ public class GameServiceTest {
         List<Game> games = gameService.getGames().collectList().block();
 
         assertThat("Should return all games.", games, hasSize(2));
+    }
+
+    @Test
+    public void method_addPlayer_should_add_a_player_to_a_game() {
+        Game gameInDb = gameRepository.saveAll(Arrays.asList(new Game(), new Game())).blockLast();
+        Player player = new Player("id1");
+
+        gameService.addPlayer(player, gameInDb.getId()).block();
+
+        Game updatedGameInDb = gameRepository.findById(gameInDb.getId()).block();
+        assertEquals("Should add player to game.", player, updatedGameInDb.getPlayers().get(0));
     }
 
 }

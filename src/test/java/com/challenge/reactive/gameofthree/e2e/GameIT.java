@@ -1,6 +1,7 @@
 package com.challenge.reactive.gameofthree.e2e;
 
 import com.challenge.reactive.gameofthree.model.Game;
+import com.challenge.reactive.gameofthree.model.Player;
 import com.challenge.reactive.gameofthree.repository.GameRepository;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -14,6 +15,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
 import java.util.List;
@@ -61,6 +63,24 @@ public class GameIT {
                     .block();
 
         assertThat("Should get all games.", gamesInDb, containsInAnyOrder(result.toArray()));
+    }
+
+    @Test
+    public void should_add_players_to_game_by_id() {
+        Player player = new Player("IT-id-1");
+        Game gameInDb = gameRepository.saveAll(Arrays.asList(new Game(), new Game())).blockLast();
+
+        webTestClient.post()
+                        .uri("/games/{id}/players", gameInDb.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(Mono.just(player), Player.class)
+                .exchange()
+                .expectStatus().isCreated()
+                .expectBody().isEmpty();
+
+        Game updatedGameInDb = gameRepository.findById(gameInDb.getId()).block();
+        assertEquals("Should add new player to game.", player, updatedGameInDb.getPlayers().get(0));
+
     }
 }
 
