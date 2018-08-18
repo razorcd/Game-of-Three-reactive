@@ -1,12 +1,15 @@
 package com.challenge.reactive.gameofthree.controller;
 
+import com.challenge.reactive.gameofthree.model.Game;
 import com.challenge.reactive.gameofthree.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -20,13 +23,27 @@ public class GameController {
         this.gameService = gameService;
     }
 
+    /**
+     * Get all games.
+     *
+     * @return {@code Flux<Game>} all games.
+     */
+    @GetMapping
+    public Flux<Game> getGames() {
+        return gameService.getGames();
+    }
+
+    /**
+     * Create a new game.
+     *
+     * @return {@code Mono<ResponseEntity>} empty.
+     */
     @PostMapping
     public Mono<ResponseEntity> postGame() {
         return gameService.createGame()
                 .map(game -> new ResponseEntity(HttpStatus.CREATED))
                 .defaultIfEmpty(new ResponseEntity(HttpStatus.BAD_REQUEST));
     }
-
 
 
 
