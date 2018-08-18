@@ -1,7 +1,6 @@
 package com.challenge.reactive.application.controller;
 
 import com.challenge.reactive.application.model.Game;
-import com.challenge.reactive.application.model.Player;
 import com.challenge.reactive.application.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

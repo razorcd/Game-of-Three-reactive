@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
- * Will be executed at application start.
+ * Will be executed at reactive start.
  */
 @Component
 public class ActionCommandRunner implements CommandLineRunner {
@@ -28,5 +28,4 @@ public class ActionCommandRunner implements CommandLineRunner {
                 })
                 .doOnError(error -> LOGGER.warn("Error on received action from repository. ", error));
     }
-
 }
