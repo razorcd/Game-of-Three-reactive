@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @SpringBootApplication
-//@EnableMongoRepositories
 @EnableReactiveMongoRepositories
 @Import(ProcessorApplication.class)
 public class GameOfThreeApplication {

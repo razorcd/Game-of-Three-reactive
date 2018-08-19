@@ -1,6 +1,6 @@
 package com.challenge.reactive.application.e2e;
 
-import com.challenge.reactive.application.model.Action;
+import com.challenge.reactive.model.Action;
 import com.challenge.reactive.application.repository.ActionsRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,8 +15,8 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.List;
 
-import static com.challenge.reactive.application.model.CommandType.ADD_PLAYER;
-import static com.challenge.reactive.application.model.CommandType.START;
+import static com.challenge.reactive.model.CommandType.ADD_PLAYER;
+import static com.challenge.reactive.model.CommandType.START;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 

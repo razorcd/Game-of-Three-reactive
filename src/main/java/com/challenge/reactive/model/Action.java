@@ -1,4 +1,4 @@
-package com.challenge.reactive.application.model;
+package com.challenge.reactive.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;

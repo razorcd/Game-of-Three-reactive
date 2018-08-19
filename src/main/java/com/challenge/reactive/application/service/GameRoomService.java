@@ -1,19 +1,19 @@
 package com.challenge.reactive.application.service;
 
-import com.challenge.reactive.application.model.Game;
-import com.challenge.reactive.application.repository.GameRepository;
+import com.challenge.reactive.model.Game;
+import com.challenge.reactive.application.repository.GameRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class GameService {
+public class GameRoomService {
 
-    private final GameRepository gameRepository;
+    private final GameRoomRepository gameRepository;
 
     @Autowired
-    public GameService(GameRepository gameRepository) {
+    public GameRoomService(GameRoomRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
 

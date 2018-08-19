@@ -1,7 +1,9 @@
 package com.challenge.reactive.gameofthree.gameround.gamerules.gamewinlogic;
 
 import com.challenge.reactive.gameofthree.game.domain.OutputNumber;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WinWhenOne implements IGameWinLogic {
 
     private static final OutputNumber WINNING_VALUE = new OutputNumber(1);

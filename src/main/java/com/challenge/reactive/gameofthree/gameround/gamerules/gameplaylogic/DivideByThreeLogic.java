@@ -3,7 +3,9 @@ package com.challenge.reactive.gameofthree.gameround.gamerules.gameplaylogic;
 import com.challenge.reactive.gameofthree.game.domain.OutputNumber;
 import com.challenge.reactive.gameofthree.game.validator.Validator;
 import com.challenge.reactive.gameofthree.gameround.domain.GameRoundInput;
-import com.challenge.reactive.gameofthree.util.PropertiesConfigLoader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 /**
  * Encapsulated game logic that divides input number by {@link #DIVIDER}.
  */
+@Component
 public class DivideByThreeLogic implements IGameRoundLogic {
 
     /**
@@ -44,6 +47,7 @@ public class DivideByThreeLogic implements IGameRoundLogic {
      *
      * @param validator the game round input validator.
      */
+    @Autowired(required = false)
     public void addValidator(Validator<GameRoundInput> validator) {
         validators.add(validator);
     }

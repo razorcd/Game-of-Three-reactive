@@ -10,9 +10,12 @@ import com.challenge.reactive.gameofthree.gameround.IGameRoundService;
 import com.challenge.reactive.gameofthree.gameround.domain.GameRoundInput;
 import com.challenge.reactive.gameofthree.gameround.domain.GameRoundResult;
 import com.challenge.reactive.gameofthree.model.IPlayer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+@Component
 public class Game implements CanValidate<Game> {
 
     private final IGameRoundService gameRoundService;
@@ -26,6 +29,7 @@ public class Game implements CanValidate<Game> {
      * @param gameRoundService the service for each game round.
      * @throws GameException if invalid playerAggregate.
      */
+    @Autowired
     public Game(final IGameRoundService gameRoundService) {
         this.gameRoundService = gameRoundService;
         this.playerAggregate = PlayerAggregate.NULL;

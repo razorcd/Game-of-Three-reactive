@@ -1,6 +1,6 @@
 package com.challenge.reactive.application.service;
 
-import com.challenge.reactive.application.model.Action;
+import com.challenge.reactive.model.Action;
 import com.challenge.reactive.application.repository.ActionsRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.challenge.reactive.application.model.CommandType.ADD_PLAYER;
-import static com.challenge.reactive.application.model.CommandType.PLAY;
-import static com.challenge.reactive.application.model.CommandType.START;
+import static com.challenge.reactive.model.CommandType.ADD_PLAYER;
+import static com.challenge.reactive.model.CommandType.PLAY;
+import static com.challenge.reactive.model.CommandType.START;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.*;

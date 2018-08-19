@@ -6,7 +6,10 @@ import com.challenge.reactive.gameofthree.gameround.domain.GameRoundInput;
 import com.challenge.reactive.gameofthree.gameround.domain.GameRoundResult;
 import com.challenge.reactive.gameofthree.gameround.gamerules.gameplaylogic.IGameRoundLogic;
 import com.challenge.reactive.gameofthree.gameround.gamerules.gamewinlogic.IGameWinLogic;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GameRoundService implements IGameRoundService {
     private final IGameRoundLogic gameRoundRule;
     private final IGameWinLogic winLogic;
@@ -17,6 +20,7 @@ public class GameRoundService implements IGameRoundService {
      * @param gameRoundRule the algorithm that will generate the game output of the played round.
      * @param winLogic the logic that determines if played round is a win.
      */
+    @Autowired
     public GameRoundService(final IGameRoundLogic gameRoundRule, final IGameWinLogic winLogic) {
         this.gameRoundRule = gameRoundRule;
         this.winLogic = winLogic;

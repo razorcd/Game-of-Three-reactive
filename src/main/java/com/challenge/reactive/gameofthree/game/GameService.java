@@ -4,15 +4,19 @@ import com.challenge.reactive.gameofthree.exception.GameException;
 import com.challenge.reactive.gameofthree.game.domain.InputNumber;
 import com.challenge.reactive.gameofthree.game.validator.*;
 import com.challenge.reactive.gameofthree.model.IPlayer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+@Service
 public class GameService implements IGameService {
     private final AtomicReference<Game> game;
 
     /**
      * Build reactive context.
      */
+    @Autowired
     public GameService(Game game) {
         this.game = new AtomicReference<>(game);
     }

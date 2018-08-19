@@ -1,7 +1,7 @@
 package com.challenge.reactive.application.service;
 
-import com.challenge.reactive.application.model.Game;
-import com.challenge.reactive.application.repository.GameRepository;
+import com.challenge.reactive.model.Game;
+import com.challenge.reactive.application.repository.GameRoomRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +22,10 @@ import static org.junit.Assert.assertEquals;
 @DataMongoTest
 public class GameServiceTest {
 
-    private GameService gameService;
+    private GameRoomService gameService;
 
     @Autowired
-    private GameRepository gameRepository;
+    private GameRoomRepository gameRepository;
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -33,7 +33,7 @@ public class GameServiceTest {
     @Before
     public void setUp() throws Exception {
         mongoTemplate.dropCollection(Game.class);
-        gameService = new GameService(gameRepository);
+        gameService = new GameRoomService(gameRepository);
     }
 
     @Test

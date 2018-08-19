@@ -1,6 +1,6 @@
 package com.challenge.reactive.application.controller;
 
-import com.challenge.reactive.application.model.Action;
+import com.challenge.reactive.model.Action;
 import com.challenge.reactive.application.service.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

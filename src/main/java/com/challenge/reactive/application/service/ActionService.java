@@ -1,6 +1,6 @@
 package com.challenge.reactive.application.service;
 
-import com.challenge.reactive.application.model.Action;
+import com.challenge.reactive.model.Action;
 import com.challenge.reactive.application.repository.ActionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

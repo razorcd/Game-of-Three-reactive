@@ -1,4 +1,4 @@
-package com.challenge.reactive.application.repository;
+package com.challenge.reactive.processor.repository;
 
 import com.challenge.reactive.model.Action;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface ActionsRepository extends ReactiveMongoRepository<Action, String> {
+public interface CommandActionsRepository extends ReactiveMongoRepository<Action, String> {
 
     @Tailable
     Flux<Action> findWithTailableCursorBy();

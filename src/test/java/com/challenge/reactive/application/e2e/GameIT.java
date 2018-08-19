@@ -1,7 +1,7 @@
 package com.challenge.reactive.application.e2e;
 
-import com.challenge.reactive.application.model.Game;
-import com.challenge.reactive.application.repository.GameRepository;
+import com.challenge.reactive.model.Game;
+import com.challenge.reactive.application.repository.GameRoomRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,7 +30,7 @@ public class GameIT {
     private WebTestClient webTestClient;
 
     @Autowired
-    GameRepository gameRepository;
+    GameRoomRepository gameRepository;
 
     @Autowired
     MongoTemplate mongoTemplate;

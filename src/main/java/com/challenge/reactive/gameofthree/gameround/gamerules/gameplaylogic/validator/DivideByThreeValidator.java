@@ -3,7 +3,6 @@ package com.challenge.reactive.gameofthree.gameround.gamerules.gameplaylogic.val
 import com.challenge.reactive.gameofthree.exception.GameRoundException;
 import com.challenge.reactive.gameofthree.game.validator.Validator;
 import com.challenge.reactive.gameofthree.gameround.domain.GameRoundInput;
-import com.challenge.reactive.gameofthree.util.PropertiesConfigLoader;
 
 import java.util.ArrayList;
 import java.util.List;

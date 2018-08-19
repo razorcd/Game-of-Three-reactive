@@ -1,7 +1,7 @@
 package com.challenge.reactive.application.controller;
 
-import com.challenge.reactive.application.model.Game;
-import com.challenge.reactive.application.service.GameService;
+import com.challenge.reactive.model.Game;
+import com.challenge.reactive.application.service.GameRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +13,10 @@ import reactor.core.publisher.Mono;
 @RequestMapping("games")
 public class GameController {
 
-    private final GameService gameService;
+    private final GameRoomService gameService;
 
     @Autowired
-    public GameController(GameService gameService) {
+    public GameController(GameRoomService gameService) {
         this.gameService = gameService;
     }
 

@@ -2,10 +2,12 @@ package com.challenge.reactive.gameofthree.ai;
 
 import com.challenge.reactive.gameofthree.game.domain.InputNumber;
 import com.challenge.reactive.gameofthree.game.domain.OutputNumber;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class DivideByThreeAi implements IGameRoundAi {
 
     /**

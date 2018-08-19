@@ -1,7 +1,7 @@
 package com.challenge.reactive.application.config;
 
-import com.challenge.reactive.application.model.Action;
-import com.challenge.reactive.application.model.Game;
+import com.challenge.reactive.model.Action;
+import com.challenge.reactive.model.Game;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
