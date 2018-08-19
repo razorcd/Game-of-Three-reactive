@@ -1,18 +1,27 @@
 package com.challenge.reactive.processor.service;
 
-public interface ICommandGameLogService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class CommandLogService implements ICommandLogService {
 
     /**
      * Send message to output.
      *
      * @param message the message to sent.
      */
-    void send(String message);
+    @Override
+    public void send(String message) {
+
+    }
 
     /**
      * Broadcast message to all active socket listeners.
      *
      * @param message the message to broadcast.
      */
-    void broadcast(String message);
+    @Override
+    public void broadcast(String message) {
+
+    }
 }

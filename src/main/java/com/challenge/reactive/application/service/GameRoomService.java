@@ -1,7 +1,7 @@
 package com.challenge.reactive.application.service;
 
 import com.challenge.reactive.model.Game;
-import com.challenge.reactive.application.repository.GameRoomRepository;
+import com.challenge.reactive.application.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -10,10 +10,10 @@ import reactor.core.publisher.Mono;
 @Service
 public class GameRoomService {
 
-    private final GameRoomRepository gameRepository;
+    private final RoomRepository gameRepository;
 
     @Autowired
-    public GameRoomService(GameRoomRepository gameRepository) {
+    public GameRoomService(RoomRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
 

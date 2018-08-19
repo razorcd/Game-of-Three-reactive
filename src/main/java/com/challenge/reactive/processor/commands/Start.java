@@ -8,14 +8,14 @@ import com.challenge.reactive.gameofthree.gameround.domain.GameRoundResult;
 import com.challenge.reactive.gameofthree.model.Human;
 import com.challenge.reactive.model.Action;
 import com.challenge.reactive.processor.exceptionhandler.GameExceptionHandler;
-import com.challenge.reactive.processor.service.ICommandGameLogService;
+import com.challenge.reactive.processor.service.ICommandLogService;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Start extends ChainableCommand<Action> {
 
     private IGameService gameService;
-    private ICommandGameLogService socketChannel;
+    private ICommandLogService socketChannel;
 
     /**
      * Start command.
@@ -23,7 +23,7 @@ public class Start extends ChainableCommand<Action> {
      * @param gameService service to interact with running game.
      * @param socketChannel socket adapter.
      */
-    public Start(IGameService gameService, ICommandGameLogService socketChannel) {
+    public Start(IGameService gameService, ICommandLogService socketChannel) {
         this.gameService = gameService;
         this.socketChannel = socketChannel;
     }

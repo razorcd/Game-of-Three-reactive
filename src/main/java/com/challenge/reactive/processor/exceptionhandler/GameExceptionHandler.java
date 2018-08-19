@@ -2,16 +2,16 @@ package com.challenge.reactive.processor.exceptionhandler;
 
 import com.challenge.reactive.gameofthree.exception.GameException;
 import com.challenge.reactive.gameofthree.model.IPlayer;
-import com.challenge.reactive.processor.service.ICommandGameLogService;
+import com.challenge.reactive.processor.service.ICommandLogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GameExceptionHandler implements ExceptionHandler<GameException> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GameExceptionHandler.class);
-    private ICommandGameLogService socketChannel;
+    private ICommandLogService socketChannel;
 
-    public GameExceptionHandler(ICommandGameLogService socketChannel) {
+    public GameExceptionHandler(ICommandLogService socketChannel) {
         this.socketChannel = socketChannel;
     }
 

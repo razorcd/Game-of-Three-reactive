@@ -1,7 +1,7 @@
 package com.challenge.reactive.application.service;
 
 import com.challenge.reactive.model.Game;
-import com.challenge.reactive.application.repository.GameRoomRepository;
+import com.challenge.reactive.application.repository.RoomRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +25,7 @@ public class GameServiceTest {
     private GameRoomService gameService;
 
     @Autowired
-    private GameRoomRepository gameRepository;
+    private RoomRepository gameRepository;
 
     @Autowired
     private MongoTemplate mongoTemplate;

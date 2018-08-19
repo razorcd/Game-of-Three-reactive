@@ -14,7 +14,7 @@ public class GameLog {
     @Id
     private String id;
 
-    private Player player;
+    private User player;
 
     private String gameId;
 

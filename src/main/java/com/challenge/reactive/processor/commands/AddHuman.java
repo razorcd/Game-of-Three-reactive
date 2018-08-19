@@ -5,14 +5,14 @@ import com.challenge.reactive.gameofthree.game.IGameService;
 import com.challenge.reactive.gameofthree.model.Human;
 import com.challenge.reactive.model.Action;
 import com.challenge.reactive.processor.exceptionhandler.GameExceptionHandler;
-import com.challenge.reactive.processor.service.ICommandGameLogService;
+import com.challenge.reactive.processor.service.ICommandLogService;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AddHuman extends ChainableCommand<Action> {
 
     private IGameService gameService;
-    private ICommandGameLogService socketChannel;
+    private ICommandLogService socketChannel;
 
     /**
      * Add new human player command.
@@ -20,7 +20,7 @@ public class AddHuman extends ChainableCommand<Action> {
      * @param gameService service to interact with running game.
      * @param socketChannel socket adapter.
      */
-    public AddHuman(IGameService gameService, ICommandGameLogService socketChannel) {
+    public AddHuman(IGameService gameService, ICommandLogService socketChannel) {
         this.gameService = gameService;
         this.socketChannel = socketChannel;
     }

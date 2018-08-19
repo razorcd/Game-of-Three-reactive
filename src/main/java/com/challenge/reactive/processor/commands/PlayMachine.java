@@ -9,14 +9,14 @@ import com.challenge.reactive.gameofthree.game.domain.PlayerAggregate;
 import com.challenge.reactive.gameofthree.gameround.domain.GameRoundResult;
 import com.challenge.reactive.gameofthree.model.IPlayer;
 import com.challenge.reactive.model.Action;
-import com.challenge.reactive.processor.service.ICommandGameLogService;
+import com.challenge.reactive.processor.service.ICommandLogService;
 import org.springframework.stereotype.Component;
 
 @Component
 public class PlayMachine extends ChainableCommand<Action> {
 
     private IGameService gameService;
-    private ICommandGameLogService socketChannel;
+    private ICommandLogService socketChannel;
     private IGameRoundAi gameRoundAi;
 
     /**
@@ -26,7 +26,7 @@ public class PlayMachine extends ChainableCommand<Action> {
      * @param socketChannel socket adapter.
      * @param gameRoundAi AI algorithm to calculate next game input for machine to play.
      */
-    public PlayMachine(IGameService gameService, ICommandGameLogService socketChannel, IGameRoundAi gameRoundAi) {
+    public PlayMachine(IGameService gameService, ICommandLogService socketChannel, IGameRoundAi gameRoundAi) {
         this.gameService = gameService;
         this.socketChannel = socketChannel;
         this.gameRoundAi = gameRoundAi;

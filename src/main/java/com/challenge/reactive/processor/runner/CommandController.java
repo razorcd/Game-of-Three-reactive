@@ -3,7 +3,7 @@ package com.challenge.reactive.processor.runner;
 import com.challenge.reactive.gameofthree.game.IGameService;
 import com.challenge.reactive.model.Action;
 import com.challenge.reactive.processor.commands.*;
-import com.challenge.reactive.processor.service.ICommandGameLogService;
+import com.challenge.reactive.processor.service.ICommandLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 public class CommandController implements Consumer<Action> {
 
     private IGameService gameService;
-    private ICommandGameLogService socketChannel;
+    private ICommandLogService socketChannel;
     private List<ChainableCommand<Action>> chainableCommandList;
 
 
@@ -25,7 +25,7 @@ public class CommandController implements Consumer<Action> {
      * @param socketChannel the communication socket.
      */
     @Autowired
-    public CommandController(IGameService gameService, ICommandGameLogService socketChannel, List<ChainableCommand<Action>> chainableCommandList) {
+    public CommandController(IGameService gameService, ICommandLogService socketChannel, List<ChainableCommand<Action>> chainableCommandList) {
         this.gameService = gameService;
         this.socketChannel = socketChannel;
 

@@ -20,7 +20,7 @@ public class Game {
     private String id;
 
     @Size(max = 2, message = "size must be maximum 2")
-    List<Player> players = new ArrayList<>();
+    List<User> players = new ArrayList<>();
 
 //    private List<GameRound> gameRound;
 }

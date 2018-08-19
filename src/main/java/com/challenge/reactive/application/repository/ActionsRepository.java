@@ -9,6 +9,11 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface ActionsRepository extends ReactiveMongoRepository<Action, String> {
 
+    /**
+     * Tailable search for all actions.
+     *
+     * @return {@code Flux<Action>} reactive flux of all actions.
+     */
     @Tailable
     Flux<Action> findWithTailableCursorBy();
 

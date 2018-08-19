@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 import javax.validation.Valid;
 
 @Repository
-public interface GameRoomRepository extends ReactiveMongoRepository<Game, String> {
+public interface RoomRepository extends ReactiveMongoRepository<Game, String> {
 
     <S extends Game> Mono<S> save(@Valid S entity);
 }
