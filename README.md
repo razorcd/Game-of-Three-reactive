@@ -11,16 +11,16 @@ This repository takes the [Numbers-Game](https://github.com/razorcd/numbers-game
 
 
 ```
-                 _________                _____________           _______________
-                |         |              |             |         |               |
-  (actions)     | Actions | (subscribe)  |             |         |               |
---------------->|  Event  |------------->|             |         |               |
-                |  Source |              |             |         |               |
-                |_________|              |   Command   |         | Game Of Three |
-                                         | Interpreter |<------->|    Engine     | 
-                 _________               |             |         |               |
-                |         |              |             |         |               |
-<---------------| Actions |  (publish)   |             |         |               |
-  (log events)  |  Logs   |<-------------|             |         |               |
-                |_________|              |_____________|         |_______________|
+                 _________                _____________           ______________
+                |         |              |             |         |              |
+  (actions)     | Actions | (subscribe)  |             |         |              |
+--------------->|  Event  |------------->|             |         |              |
+                |  Source |              |             |         |              |
+                |_________|              |   Command   |         | Numbers Game |
+                                         | Interpreter |<------->|    Engine    | 
+                 _________               |             |         |              |
+                |         |              |             |         |              |
+<---------------| Actions |  (publish)   |             |         |              |
+  (log events)  |  Logs   |<-------------|             |         |              |
+                |_________|              |_____________|         |______________|
 ``` 
