@@ -1,8 +1,8 @@
-# Game-of-Three-reactive
-Game of three implemented with WebFlux, Reactive Mongo, EventSourcing and CQRS.
+# Numbers-Game-reactive
+Numbers game implemented with WebFlux, Reactive Mongo, Event Sourcing (commands) and CQRS.
 
 
-This repository takes the [Game of Three](https://github.com/razorcd/Game-of-Three) implementation in vanilla Java and integrates it with Spring WebFlux, ReactiveMongodb following Event Sourcing and CQRS.
+This repository takes the [Game of Three](https://github.com/razorcd/Game-of-Three) implementation in vanilla Java and integrates it with Spring WebFlux, ReactiveMongodb following Event Sourcing as the commands and CQRS.
 
 #### At the moment this app is still work in progress!
 
