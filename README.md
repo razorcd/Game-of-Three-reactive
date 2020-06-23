@@ -4,7 +4,7 @@ Numbers game implemented with WebFlux, Reactive Mongo, Event Sourcing (commands)
 
 This repository takes the [Numbers-Game](https://github.com/razorcd/numbers-game) implementation in vanilla Java and integrates it with Spring WebFlux, ReactiveMongodb following Event Sourcing as the commands and CQRS.
 
-#### At the moment this app is still work in progress!
+#### At the moment this app is still work in progress !
 
 
 ## Architecture
